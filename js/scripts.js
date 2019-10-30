@@ -1,9 +1,14 @@
 var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 var pigLatin = []
+var notLetter = false;
+var letters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var pigFunction = function(wordArray){
   wordArray.forEach(function(word){
     var splitWord = word.split("");
-    if (splitWord[0] ==="s" && splitWord[1] === "q" && splitWord[2] === "u"){
+    if(letters.includes(splitWord[0]) == false) {
+      notLetter = true;
+
+  } else if (splitWord[0] ==="s" && splitWord[1] === "q" && splitWord[2] === "u"){
       var squ = splitWord.splice(0,3);
       squ = squ.join("");
       splitWord = splitWord.concat(squ + "ay");
@@ -17,7 +22,19 @@ var pigFunction = function(wordArray){
       pigLatin.push(splitWord)
     } else if (vowels.includes(splitWord[0])){
       pigLatin.push(splitWord.concat("way").join(""));
-    } else if ((vowels.includes(splitWord[1]) == false) && (vowels.includes(splitWord[0]) == false)) {
+    } else if ((vowels.includes(splitWord[1]) == false) && (vowels.includes(splitWord[0]) == false) && (splitWord[2] == "y")) {
+      var firstThreeY = splitWord.splice(0,2);
+      firstThreeY = firstThreeY.join('');
+      splitWord = splitWord.concat(firstThreeY + "ay");
+      splitWord = splitWord.join("");
+      pigLatin.push(splitWord);
+    } else if ((vowels.includes(splitWord[1]) == false) && (vowels.includes(splitWord[0]) == false) && (vowels.includes(splitWord[2]) == false)) {
+      var firstThree = splitWord.splice(0,3);
+      firstThree = firstThree.join('');
+      splitWord = splitWord.concat(firstThree + "ay");
+      splitWord = splitWord.join("");
+      pigLatin.push(splitWord);
+    }else if ((vowels.includes(splitWord[1]) == false) && (vowels.includes(splitWord[0]) == false)) {
       var firstTwo = splitWord.splice(0,2);
       firstTwo = firstTwo.join('');
       splitWord = splitWord.concat(firstTwo + "ay");
@@ -40,11 +57,13 @@ $(document).ready(function(){
     event.preventDefault();
     var userSentence = $("#sentence").val();
     var wordArray = userSentence.toLowerCase().split(" ");
-    // var wordArray = userArray.concat(wordArray)
     var finalSentence = pigFunction(wordArray);
-    console.log(wordArray)
-    // pigFunction(userSentence);
 
+    $(".results").show();
     $('#pigLatin').text(finalSentence);
+
+  });
+  $("button.restart").click(function(event) {
+    location.reload();
   });
 });

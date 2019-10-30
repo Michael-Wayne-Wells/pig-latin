@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/scripts.js" ></script>
     <title></title>
   </head>
   <body>
-<h1>Pig Latin Generator</h1>
-<div class="container">
-  <h2>Enter a word/sentence</h2>
-  <form class="userSentence">
-    <label for="sentence">Enter:
-      <input type="text" id="sentence">
-    </label>
-    <button type="submit" name="button">Submit</button>
-  </form>
-  <h4>Your pig latin sentence is: <span id="pigLatin"></span></h4>
+    <div class="jumbotron">
+      <h1>Pig Latin Generator</h1>
 
+    </div>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Enter a word/sentence</h2>
+    </div>
+    <div class="card-body">
+      <form class="userSentence">
+        <label for="sentence">Enter:
+          <input type="text" id="sentence">
+        </label>
+        <button class="btn btn-dark" type="submit" name="button">Submit</button>
+      </form>
+    </div>
+    <div class="results">
+      <h4>Your pig latin sentence is: <span id="pigLatin"></span></h4>
+
+      <img src="https://media3.giphy.com/media/WsVJuYCz6qgJG/giphy.gif" alt="Pig Gif">
+    </div>
+  </div>
 </div>
+<div class="not-letter">
+  <h1>easeplay enterway etterlay</h1>
+</div>
+<button type="button" class="btn btn-dark restart">Restart</button>
   </body>
 </html>

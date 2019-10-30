@@ -1,3 +1,4 @@
+//Back-end logic
 var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 var pigLatin = []
 var notLetter = false;
@@ -7,8 +8,7 @@ var pigFunction = function(wordArray){
     var splitWord = word.split("");
     if(letters.includes(splitWord[0]) == false) {
       notLetter = true;
-
-  } else if (splitWord[0] ==="s" && splitWord[1] === "q" && splitWord[2] === "u"){
+    } else if (splitWord[0] ==="s" && splitWord[1] === "q" && splitWord[2] === "u"){
       var squ = splitWord.splice(0,3);
       squ = squ.join("");
       splitWord = splitWord.concat(squ + "ay");
@@ -46,12 +46,11 @@ var pigFunction = function(wordArray){
       splitWord = splitWord.join("");
       pigLatin.push(splitWord);
     }
-
   });
   return(pigLatin.join(' '));
 }
 
-
+//User interface logic
 $(document).ready(function(){
   $(".userSentence").submit(function(event){
     event.preventDefault();

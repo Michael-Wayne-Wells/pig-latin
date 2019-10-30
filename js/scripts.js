@@ -61,7 +61,7 @@ $(document).ready(function(){
 
     $(".results").show();
     $('#pigLatin').text(finalSentence);
-
+    $("form").hide()
   });
   $("button.restart").click(function(event) {
     location.reload();

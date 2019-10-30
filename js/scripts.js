@@ -1,22 +1,18 @@
-// var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-// var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"]
-// var qu = ["Qu", "qu"]
-// var squ = ["Squ", "squ"]
-// var blanksentence = []
-// var wordArray = ["This", 'is', 'a', 'test']
-// var pigLatin = function(wordArray) {
-//   wordArray.forEach(function(word){
-//     word.split("");
-//     word.forEach(function(letter){
-//       for (i = 0; i < vowels.length; i ++){
-//       if (letter[0] === vowels[i]) {
-//         return letter.join() + "way"
-//         console.log(letter)
-//       }
-//     }
-//     })
-//   })
-// }
+var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+var wordArray = ["this", "is", "a", "test"]
+var pigLatin = []
+wordArray.forEach(function(word){
+  var splitWord = word.split("");
+  if (vowels.includes(splitWord[0])){
+  pigLatin.push(splitWord.concat("way").join(""));
+} else if (vowels.includes !== splitWord[0]){
+	var first = splitWord.splice(0,1);
+        splitWord = splitWord.concat(first + "ay");
+       	splitWord = splitWord.join("");
+        pigLatin.push(splitWord);
+}
+console.log(pigLatin.join(" "))
+});
 
 $(document).ready(function(){
 $(".userSentence").submit(function(event){

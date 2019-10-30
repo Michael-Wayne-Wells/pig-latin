@@ -17,12 +17,18 @@ wordArray.forEach(function(word){
   pigLatin.push(splitWord)
 } else if (vowels.includes(splitWord[0])){
   pigLatin.push(splitWord.concat("way").join(""));
-} else if (vowels.includes !== splitWord[0]){
+} else if ((vowels.includes(splitWord[1]) == false) && (vowels.includes(splitWord[0]) == false)) {
+	var firstTwo = splitWord.splice(0,2);
+  			firstTwo = firstTwo.join('');
+        splitWord = splitWord.concat(firstTwo + "ay");
+       	splitWord = splitWord.join("");
+        pigLatin.push(splitWord);
+}
+else if (vowels.includes(splitWord[0]) == false){
 	var first = splitWord.splice(0,1);
         splitWord = splitWord.concat(first + "ay");
        	splitWord = splitWord.join("");
         pigLatin.push(splitWord);
-        console.log("here")
 }
 console.log(pigLatin);
 });

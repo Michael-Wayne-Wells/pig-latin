@@ -1,17 +1,24 @@
 var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-var wordArray = ["this", "is", "a", "test"]
+var wordArray = ["square", "is", "a", "test"]
 var pigLatin = []
 wordArray.forEach(function(word){
   var splitWord = word.split("");
-  if (vowels.includes(splitWord[0])){
+  if (splitWord[0] ==="s" && splitWord[1] === "q" && splitWord[2] === "u"){
+    var squ = splitWord.splice(0,3);
+    squ = squ.join("");
+    splitWord = splitWord.concat(squ + "ay");
+    splitWord = splitWord.join("");
+    pigLatin.push(splitWord)
+} else if (vowels.includes(splitWord[0])){
   pigLatin.push(splitWord.concat("way").join(""));
 } else if (vowels.includes !== splitWord[0]){
 	var first = splitWord.splice(0,1);
         splitWord = splitWord.concat(first + "ay");
        	splitWord = splitWord.join("");
         pigLatin.push(splitWord);
+        console.log("here")
 }
-console.log(pigLatin.join(" "))
+console.log(pigLatin);
 });
 
 $(document).ready(function(){

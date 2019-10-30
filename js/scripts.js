@@ -1,5 +1,5 @@
 var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-var wordArray = ["square", "is", "a", "test"]
+var wordArray = ["quater", "is", "a", "test"]
 var pigLatin = []
 wordArray.forEach(function(word){
   var splitWord = word.split("");
@@ -9,6 +9,12 @@ wordArray.forEach(function(word){
     splitWord = splitWord.concat(squ + "ay");
     splitWord = splitWord.join("");
     pigLatin.push(splitWord)
+}else if (splitWord[0] ==="q" && splitWord[1] === "u"){
+  var qu = splitWord.splice(0,2);
+  qu = qu.join("");
+  splitWord = splitWord.concat(qu + "ay");
+  splitWord = splitWord.join("");
+  pigLatin.push(splitWord)
 } else if (vowels.includes(splitWord[0])){
   pigLatin.push(splitWord.concat("way").join(""));
 } else if (vowels.includes !== splitWord[0]){
